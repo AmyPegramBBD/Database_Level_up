@@ -28,12 +28,12 @@
 <!-- MEET THE TEAM -->
 ## Development Team
 
-- [ ] Player 1
-- [ ] Player 2
-- [ ] Player 3
+- [ ] [Amy Pegram](https://github.com/AmyPegramBBD)
+- [ ] [Andrew Bodenstein]()
+- [ ] [Nikita Smal]()
+- [ ] [Phumzile Nkosi](https://github.com/PhumzileNkosi)
+- [ ] [Riselle Rawthee]()
 - [ ] [Sandhya I. Singh](https://github.com/ms-si-Singh)
-- [ ] Player 5
-- [ ] Player 6
 
 <!-- REFERENCES -->
 ## References
