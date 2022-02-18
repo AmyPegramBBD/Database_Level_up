@@ -31,7 +31,7 @@
 - [ ] Player 1
 - [ ] Player 2
 - [ ] Player 3
-- [ ] Player 4
+- [ ] [Sandhya I. Singh](https://github.com/ms-si-Singh)
 - [ ] Player 5
 - [ ] Player 6
 
