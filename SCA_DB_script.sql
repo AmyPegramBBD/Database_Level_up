@@ -41,3 +41,23 @@ CREATE TABLE [Location] (
   [Longitude] [decimal](10,6),
 );
 GO
+
+CREATE TABLE [Incident] (
+  [ID] INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
+  [User_ID] INT NOT NULL,
+  [Location_ID] INT NOT NULL,
+  [Date] DATE NOT NULL,
+  [Time] TIME NOT NULL,
+  [Description] varchar(150) NOT NULL,
+  CONSTRAINT [FK_Incident.Location_ID]
+    FOREIGN KEY ([Location_ID])
+      REFERENCES [Location]([ID]),
+  CONSTRAINT [FK_Incident.User_ID]
+    FOREIGN KEY ([User_ID])
+      REFERENCES [User]([ID])
+);
+
+CREATE TABLE [Incident_Type] (
+  [ID] INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
+  [Incident_Description] varchar(150)
+);
