@@ -92,3 +92,27 @@ CREATE TABLE [Incident_Report] (
       REFERENCES [Incident_Type]([ID])
 );
 GO
+
+CREATE TABLE [Hospital] (
+  [ID] [int] IDENTITY(1,1) NOT NULL,
+  [Location_ID] integer,
+  [Name] varchar(150),
+  [Phone Number] varchar(11),
+  PRIMARY KEY ([ID]),
+  CONSTRAINT [FK_Hospital.Location_ID]
+    FOREIGN KEY ([Location_ID])
+      REFERENCES [Location]([LocationID]),
+);
+GO
+
+CREATE TABLE [SAPS] (
+  [ID] [int] IDENTITY(1,1) NOT NULL,
+  [Location_ID] integer,
+  [Name] varchar,
+  [Phone Number] varchar(1),
+  PRIMARY KEY ([ID]),
+  CONSTRAINT [FK_SAPS.Location_ID]
+    FOREIGN KEY ([Location_ID])
+      REFERENCES [Location]([LocationID]),
+);
+GO
