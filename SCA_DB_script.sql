@@ -13,12 +13,14 @@ CREATE TABLE dbo.[Gender_Lookup] (
   [Gender_Description] [varchar](150) NOT NULL
  
 );
+GO
 
 CREATE TABLE dbo.[Race_Lookup] (
   [ID] [int] IDENTITY (1,1) NOT NULL PRIMARY KEY,
   [Race_Description] varchar(150) NOT NULL
  
 )
+GO
 
 CREATE TABLE [Area] (
   [AreaID] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -27,6 +29,7 @@ CREATE TABLE [Area] (
   [City] [varchar](150) ,
   [Province] [varchar](150),
 );
+GO
 
 
 CREATE TABLE [Location] (
@@ -37,3 +40,4 @@ CREATE TABLE [Location] (
   [Latitude] [decimal](10,6),
   [Longitude] [decimal](10,6),
 );
+GO
