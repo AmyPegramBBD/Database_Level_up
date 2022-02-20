@@ -24,6 +24,7 @@
 <!-- ERD UPLOAD -->
 ### Entity Relational Diagram
 ==> INPUT OUR ERD
+https://lucid.app/lucidchart/3326c5b9-fbfb-4ffe-98ad-022898f7359c/edit?invitationId=inv_c450066e-eef9-4871-a48c-836f6552484b&page=0_0#
 
 <!-- MEET THE TEAM -->
 ## Development Team
