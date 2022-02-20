@@ -80,3 +80,15 @@ CREATE TABLE [Assailant_Incident] (
       REFERENCES [Assailant]([ID])
 );
 GO
+
+CREATE TABLE [Incident_Report] (
+  [Incident_ID] [int],
+  [Incident_Type_ID] [int],
+  CONSTRAINT [FK_Incident_Report.Incident_ID]
+    FOREIGN KEY ([Incident_ID])
+      REFERENCES [Incident]([ID]),
+  CONSTRAINT [FK_Incident_Report.Incident_Type_ID]
+    FOREIGN KEY ([Incident_Type_ID])
+      REFERENCES [Incident_Type]([ID])
+);
+GO
