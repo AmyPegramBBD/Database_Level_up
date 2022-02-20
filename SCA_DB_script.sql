@@ -68,3 +68,15 @@ CREATE TABLE [Location] (
   [Longitude] [decimal](10,6),
 );
 GO
+
+CREATE TABLE [Assailant_Incident] (
+  [Assailant_ID] [int],
+  [Incident_ID] [int],
+  CONSTRAINT [FK_Assailant_Incident.Incident_ID]
+    FOREIGN KEY ([Incident_ID])
+      REFERENCES [Incident]([ID]),
+  CONSTRAINT [FK_Assailant_Incident.Assailant_ID]
+    FOREIGN KEY ([Assailant_ID])
+      REFERENCES [Assailant]([ID])
+);
+GO
