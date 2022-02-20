@@ -1,0 +1,8 @@
+USE master;
+GO
+
+CREATE DATABASE SCA_DB;
+GO
+
+USE SCA_DB;
+GO
