@@ -42,7 +42,7 @@ CREATE TABLE [Location] (
 );
 GO
 
-CREATE TABLE [Incident] (
+CREATE TABLE dbo.[Incident] (
   [ID] INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
   [User_ID] INT NOT NULL,
   [Location_ID] INT NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE [Incident] (
       REFERENCES [User]([ID])
 );
 
-CREATE TABLE [Incident_Type] (
+CREATE TABLE dbo.[Incident_Type] (
   [ID] INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
   [Incident_Description] varchar(150)
 );
