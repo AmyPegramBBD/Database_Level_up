@@ -93,6 +93,7 @@ CREATE TABLE dbo.[Incident_Type] (
 GO
 
 CREATE TABLE [Assailant_Incident] (
+  [ID] [int] IDENTITY(1,1) NOT NULL
   [Assailant_ID] [int],
   [Incident_ID] [int],
   CONSTRAINT [FK_Assailant_Incident.Incident_ID]
@@ -105,6 +106,7 @@ CREATE TABLE [Assailant_Incident] (
 GO
 
 CREATE TABLE [Incident_Report] (
+  [ID] [int] IDENTITY(1,1) NOT NULL
   [Incident_ID] [int],
   [Incident_Type_ID] [int],
   CONSTRAINT [FK_Incident_Report.Incident_ID]
