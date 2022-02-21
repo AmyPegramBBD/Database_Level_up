@@ -76,7 +76,7 @@ CREATE TABLE dbo.[Incident] (
   [Location_ID] [INT] NOT NULL,
   [Date] [DATE] NOT NULL,
   [Time] [TIME] NOT NULL,
-  [Description] varchar(150) NULL,
+  [Description] [varchar](150) NULL,
   CONSTRAINT [FK_Incident.Location_ID]
     FOREIGN KEY ([Location_ID])
       REFERENCES [Location]([Location_ID]),
