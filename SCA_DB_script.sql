@@ -93,8 +93,9 @@ CREATE TABLE dbo.[Incident_Type] (
 GO
 
 CREATE TABLE [Assailant_Incident] (
-  [Assailant_ID] [INT] NOT NULL,
-  [Incident_ID] [INT] NOT NULL,
+  [Assailant_Incident_ID] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+  [Assailant_ID] [int],
+  [Incident_ID] [int],
   CONSTRAINT [FK_Assailant_Incident.Incident_ID]
     FOREIGN KEY ([Incident_ID])
       REFERENCES [Incident]([Incident_ID]),
@@ -105,8 +106,9 @@ CREATE TABLE [Assailant_Incident] (
 GO
 
 CREATE TABLE [Incident_Report] (
-  [Incident_ID] [INT] NOT NULL,
-  [Incident_Type_ID] [int] NOT NULL,
+  [Incident_Report_ID] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+  [Incident_ID] [int],
+  [Incident_Type_ID] [int],
   CONSTRAINT [FK_Incident_Report.Incident_ID]
     FOREIGN KEY ([Incident_ID])
       REFERENCES [Incident]([Incident_ID]),
