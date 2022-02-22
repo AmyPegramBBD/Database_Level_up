@@ -119,11 +119,11 @@ CREATE TABLE [Incident_Report] (
 GO
 
 CREATE TABLE [Hospital] (
-  [ID] [INT] IDENTITY(1,1) NOT NULL,
+  [Hospital_ID] [INT] IDENTITY(1,1) NOT NULL,
   [Location_ID] [INT] NOT NULL,
   [Name] [varchar](150) NOT NULL,
   [Phone Number] [varchar](15) NOT NULL,
-  PRIMARY KEY ([ID]),
+  PRIMARY KEY ([Hospital_ID]),
   CONSTRAINT [FK_Hospital.Location_ID]
     FOREIGN KEY ([Location_ID])
       REFERENCES [Location]([Location_ID]),
@@ -131,11 +131,11 @@ CREATE TABLE [Hospital] (
 GO
 
 CREATE TABLE [SAPS] (
-  [ID] [int] IDENTITY(1,1) NOT NULL,
+  [SAPS_ID] [int] IDENTITY(1,1) NOT NULL,
   [Location_ID] [INT] NOT NULL,
   [Name] [varchar](150) NOT NULL,
   [Phone Number] [varchar](15) NOT NULL,
-  PRIMARY KEY ([ID]),
+  PRIMARY KEY ([SAPS_ID]),
   CONSTRAINT [FK_SAPS.Location_ID]
     FOREIGN KEY ([Location_ID])
       REFERENCES [Location]([Location_ID]),
