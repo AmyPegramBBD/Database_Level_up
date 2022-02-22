@@ -148,3 +148,38 @@ VALUES
 (21, 'Hillbrow  Hospital','012 3456 444')
 GO
 
+/*
+* Incident Report Junction Table
+*/
+
+INSERT INTO [dbo].[Incident_Report]
+           ([Incident_ID]
+           ,[Incident_Type_ID])
+
+VALUES
+        (3, 13), (4, 11), (4, 4), (5, 5),
+	(6, 17), (6, 18), (7, 16), (7, 18),
+	(8, 4), (8, 8), (9, 6), (10, 7),
+	(10, 13), (11, 3), (11, 15), (12, 12),
+	(12, 2), (12, 10), (13, 10), (14, 9), 
+	(15, 5), (16, 13), (17, 15)
+GO
+
+/*
+* Incident Assailant Junction Table
+*/
+
+USE [SCA_DB]
+GO
+
+INSERT INTO [dbo].[Assailant_Incident]
+           ([Assailant_ID]
+           ,[Incident_ID])
+
+VALUES
+	(3, 3), (10, 4), (4, 5), (3, 6),
+	(11, 6), (5, 7), (9, 7), (6, 8),
+	(1, 9), (12, 10), (13, 11), (17, 11),
+	(7, 12), (13, 13), (12, 14), (19, 15),
+	(18, 16), (14, 16), (15, 17), (16, 17)
+GO
