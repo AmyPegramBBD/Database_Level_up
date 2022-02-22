@@ -71,7 +71,6 @@ INSERT INTO [dbo].[User]
 		   (2, 1, '930 214 1784', 37);
 GO
 
-SET IDENTITY_INSERT [dbo].[SAPS] OFF  
 INSERT INTO [dbo].[SAPS]
            ([Location_ID]
 		   ,[Name]
@@ -88,8 +87,7 @@ VALUES
 (27, 'Melville SAPS','012 34567 890')
 
 GO
-
-SET IDENTITY_INSERT [dbo].[Hospital] OFF  
+ 
 INSERT INTO [dbo].[Hospital]
            ([Location_ID]
 		   ,[Name]
