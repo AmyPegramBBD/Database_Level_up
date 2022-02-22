@@ -72,7 +72,7 @@ INSERT INTO [dbo].[User]
 GO
 
 INSERT INTO dbo.[Area]
-           ([ZIP_Code]
+           ([Postal_Code]
 		   ,[Suburb]
 		   ,[City]
 		   ,[Province]
