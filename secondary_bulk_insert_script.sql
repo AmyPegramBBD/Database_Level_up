@@ -44,7 +44,6 @@ INSERT INTO [SCA_DB].[dbo].[Assailant]
 			(5,4,'Face tattoo'),
 			(4,2,'Long acrylic nails'),
 			(4,1,'Tall with massive shoulders. Rugby player build.');
-
 GO
 
 /*User data*/
@@ -71,6 +70,7 @@ INSERT INTO [dbo].[User]
 		   (2, 1, '930 214 1784', 37);
 GO
 
+/*Area data*/
 INSERT INTO [dbo].[Area]
            ([Postal_Code]
 		   ,[Suburb]
@@ -83,7 +83,7 @@ VALUES
 		(2109, 'Melville', 'Johannesburg', 'Gauteng')
 GO
 
-
+/*Location data*/
 INSERT INTO [dbo].[Location]
            ([Area_Code_ID]
 		   ,[Street_Number]
@@ -117,3 +117,34 @@ VALUES
 		(7, NULL, 'Groote Schuur drive', CAST(-33.939424 AS Decimal(10, 6)), CAST(18.464692 AS Decimal(10, 6))),
 		(4, 6, 'Guild road', CAST(-26.180933 AS Decimal(10, 6)), CAST(28.018597 AS Decimal(10, 6)))
 GO
+
+/*SAPS data*/
+INSERT INTO [dbo].[SAPS]
+           ([Location_ID]
+		   ,[Name]
+		   ,[Phone Number]
+		   )
+
+VALUES
+(21, 'Hillbrow SAPS','012 34567 890'),
+(22, 'Rosebank SAPS','012 34567 890'),
+(23, 'Milnerton SAPS','012 34567 890'),
+(24, 'Parktown SAPS','012 34567 890'),
+(25, 'Cape Town City Centre SAPS','012 34567 890'),
+(26, 'Observatory SAPS','012 34567 890'),
+(27, 'Melville SAPS','012 34567 890')
+GO
+ 
+/*Hospital data*/
+INSERT INTO [dbo].[Hospital]
+           ([Location_ID]
+		   ,[Name]
+		   ,[Phone Number]
+		   )
+
+VALUES
+(28, 'Groote Schuur Hospital','012 3456 444'),
+(29, 'Netcare Milpark Hospital','012 3456 444'),
+(21, 'Hillbrow  Hospital','012 3456 444')
+GO
+
