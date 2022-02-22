@@ -117,3 +117,47 @@ VALUES
 		(7, NULL, 'Groote Schuur drive', CAST(-33.939424 AS Decimal(10, 6)), CAST(18.464692 AS Decimal(10, 6))),
 		(4, 6, 'Guild road', CAST(-26.180933 AS Decimal(10, 6)), CAST(28.018597 AS Decimal(10, 6)))
 GO
+
+INSERT INTO [dbo].[Incident]
+		([User_ID]
+		,[Location_ID]
+		,[Date]
+		,[Time]
+		,[Description])
+	VALUES 
+		(9, 1, '03/05/2021', '10:11', 'Money was stolen out of my pocket while walking down the street.'),
+		(5, 7, '19/06/2021', '2:02', 'I was pulled into a car, drugged, driven to an unknown location and left to die.'),
+		(8, 9, '06/05/2021', '1:05', 'I was punched from behind and the attacker ran away for some unknown reason.'),
+		(1, 7, '15/08/2021', '15:19', 'I was told to go back to my own country, because I am ruining this country.'),
+		(6, 6, '17/02/2022', '17:00', 'I was told that my kind are not human.'),
+		(15, 10, '23/12/2021', '11:33', 'I was spiked and then raped.'),
+		(12, 12, '29/03/2021', '18:02', 'While walking back from class myself and a group of friends were held at gun point and forced to give up our cellphones.'),
+		(13, 19, '05/12/2021', '9:59', 'My friend was working from back work, when a man in a hoodie murdered him.'),
+		(7, 24, '13/08/2021', '11:25', 'I was jamming in my new ride, listening to some sweet tunes while sitting in a parking lot. When all of a sudden 3 dudes bashed my window and stole my car.'),
+		(2, 7, '24/06/2021', '9:51', 'My uncle touched me when I was younger.'),
+		(4, 15, '06/03/2021', '19:10', 'While sitting at the park, I witnessed a child being abused.'),
+		(12, 21, '20/11/2021', '21:10', 'While walking my dog I happened to hear a loud bang and screaming coming from inside a building.'),
+		(10, 20, '30/06/2021', '15:38', 'While out at a pub a man came up to me and beat me.'),
+		(11, 15, '18/01/2022', '19:18', 'My handbag was stolen from the front seat of my car.'),
+		(14, 8, '31/01/2022', '16:27', 'While stopped at the intersection the car infront of me was hijacked, by 4 males.');
+GO
+
+INSERT INTO [dbo].[Incident]
+		([Incident_Description])
+	VALUES  
+		('Drugged'),
+		('Assault'),
+		('Murder'),
+		('Held at gun point'),
+		('Rape'),
+		('Domestic abuse'),
+		('Child abuse'),
+		('Kidnapping'),
+		('Pedophilia'),
+		('Robbed'),
+		('Stabbing'),
+		('Hijacking'),
+		('Racism'),
+		('Xenophobia'),
+		('Hate crime');
+GO
