@@ -4,19 +4,69 @@
 USE SCA_DB;
 GO
 
-/*Gender and Race tables*/
-INSERT INTO dbo.[Gender_Lookup]
-([Gender_Description])
-VALUES('Male'),
-      ('Female'),
-	  ('Other')
+--/*Gender and Race tables*/
+--INSERT INTO dbo.[Gender_Lookup]
+--([Gender_Description])
+--VALUES('Male'),
+--      ('Female'),
+--	  ('Other'),
+--	  ('Unknown');
+--GO
+
+--INSERT INTO dbo.[Race_Lookup]
+--([Race_Description])
+--VALUES('White'),
+--      ('Black'),
+--	  ('Indian'),
+--	  ('Coloured'),
+--	  ('Other'),
+--	  ('Unknown');
+--GO
+
+/*Assailant data*/
+INSERT INTO [SCA_DB].[dbo].[Assailant]
+           ([Race_ID]
+           ,[Gender_ID]
+           ,[Description])
+     VALUES
+           (1,1,'white male, approximately six feet tall with a medium build. His complexion was fair and he wore a moustache'),
+			(5,1,'Has scars on his forehead and right cheek.'),
+			(2,3,'Wore lots of jewelry'),
+			(6,2,'Group of 3 women, each wearing matching black outfits'),
+			(4,1,'Very tall with long hair'),
+			(6,4,'Did not see faces. Only heard deep voices with people wearing long coats'),
+			(1,2,'short with pink hair'),
+			(6,4,'Did not see anything. Came out of a white van'),
+			(6,4,'Two people with matching tattoos on their forearms'),
+			(3,1,'Friendly man approaching about getting him an uber'),
+			(6,1,'Two men with caps low over their faces.'),
+			(2,1,'Loud voice, with short hair'),
+			(5,4,'Face tattoo'),
+			(4,2,'Long acrylic nails'),
+			(4,1,'Tall with massive shoulders. Rugby player build.');
+
 GO
 
-INSERT INTO dbo.[Race_Lookup]
-([Race_Description])
-VALUES('White'),
-      ('Black'),
-	  ('Indian'),
-	  ('Coloured'),
-	  ('Other')
+/*User data*/
+INSERT INTO [dbo].[User]
+           ([Gender_ID]
+           ,[Race_ID]
+           ,[Phone_Number]
+           ,[Age])
+     VALUES
+           (3, 6, '639 325 5565', 45),
+		   (1, 3, '392 571 6227', 39),
+		   (1, 2, '410 243 7860', 34),
+		   (4, 2, '617 475 7137', 30),
+		   (4, 4, '932 930 9008', 54),
+		   (2, 6, '446 832 8821', 41),
+		   (2, 4, '920 818 3763', 38),
+		   (3, 3, '456 665 2089', 37),
+		   (1, 2, '417 227 0070', 60),
+		   (3, 5, '248 775 5167', 53),
+		   (1, 6, '224 343 6829', 55),
+		   (1, 2, '139 785 9256', 54),
+		   (3, 5, '368 479 2617', 55),
+		   (2, 5, '110 527 5962', 20),
+		   (2, 1, '930 214 1784', 37);
 GO
