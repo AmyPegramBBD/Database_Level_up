@@ -51,7 +51,7 @@ GO
 
 CREATE TABLE [Area] (
   [Area_ID] [INT] IDENTITY(1,1) PRIMARY KEY NOT NULL,
-  [ZIP_Code] [INT] NOT NULL,
+  [Postal_Code] [INT] NOT NULL,
   [Suburb] [varchar](150) NOT NULL,
   [City] [varchar](150) NOT NULL,
   [Province] [varchar](150) NOT NULL,
