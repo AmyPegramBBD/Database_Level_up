@@ -70,3 +70,36 @@ INSERT INTO [dbo].[User]
 		   (2, 5, '110 527 5962', 20),
 		   (2, 1, '930 214 1784', 37);
 GO
+
+SET IDENTITY_INSERT [dbo].[SAPS] OFF  
+INSERT INTO [dbo].[SAPS]
+           ([Location_ID]
+		   ,[Name]
+		   ,[Phone Number]
+		   )
+
+VALUES
+(21, 'Hillbrow SAPS','012 34567 890'),
+(22, 'Rosebank SAPS','012 34567 890'),
+(23, 'Milnerton SAPS','012 34567 890'),
+(24, 'Parktown SAPS','012 34567 890'),
+(25, 'Cape Town City Centre SAPS','012 34567 890'),
+(26, 'Observatory SAPS','012 34567 890'),
+(27, 'Melville SAPS','012 34567 890')
+
+GO
+
+SET IDENTITY_INSERT [dbo].[Hospital] OFF  
+INSERT INTO [dbo].[Hospital]
+           ([Location_ID]
+		   ,[Name]
+		   ,[Phone Number]
+		   )
+
+VALUES
+(28, 'Groote Schuur Hospital','012 3456 444'),
+(29, 'Netcare Milpark Hospital','012 3456 444'),
+(21, 'Hillbrow  Hospital','012 3456 444')
+
+GO
+
