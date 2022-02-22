@@ -75,8 +75,7 @@ INSERT INTO [dbo].[Area]
            ([Postal_Code]
 		   ,[Suburb]
 		   ,[City]
-		   ,[Province]
-		   )
+		   ,[Province])
 
 VALUES    
 		(8000, 'Cape Town City Centre', 'Cape Town', 'Western Cape'),
@@ -90,8 +89,7 @@ INSERT INTO [dbo].[Location]
 		   ,[Street_Number]
 		   ,[Street_Name]
 		   ,[Latitude]
-		   ,[Longitude]
-		   )
+		   ,[Longitude])
 
 VALUES    
 		(6, 247, 'Long street', CAST(-33.926054 AS Decimal(10, 6)), CAST(18.415200 AS Decimal(10, 6))),
