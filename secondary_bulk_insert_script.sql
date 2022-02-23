@@ -155,7 +155,6 @@ GO
 INSERT INTO [dbo].[Incident_Report]
            ([Incident_ID]
            ,[Incident_Type_ID])
-
 VALUES
         (3, 13), (4, 11), (4, 4), (5, 5),
 	(6, 17), (6, 18), (7, 16), (7, 18),
@@ -175,7 +174,6 @@ GO
 INSERT INTO [dbo].[Assailant_Incident]
            ([Assailant_ID]
            ,[Incident_ID])
-
 VALUES
 	(3, 3), (10, 4), (4, 5), (3, 6),
 	(11, 6), (5, 7), (9, 7), (6, 8),
