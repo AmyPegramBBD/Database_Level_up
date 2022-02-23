@@ -24,10 +24,10 @@ GO
 --GO
 
 /*Assailant data*/
-INSERT INTO [SCA_DB].[dbo].[Assailant]
+INSERT INTO [dbo].[Assailant]
            ([Race_ID]
            ,[Gender_ID]
-           ,[Description])
+           ,[Assailant_Description])
      VALUES
             (1,1,'white male, approximately six feet tall with a medium build. His complexion was fair and he wore a moustache'),
 			(5,1,'Has scars on his forehead and right cheek.'),
@@ -47,7 +47,7 @@ INSERT INTO [SCA_DB].[dbo].[Assailant]
 GO
 
 /*User data*/
-INSERT INTO [dbo].[User]
+INSERT INTO [dbo].[Users]
            ([Gender_ID]
            ,[Race_ID]
            ,[Phone_Number]
@@ -76,8 +76,7 @@ INSERT INTO [dbo].[Area]
 		   ,[Suburb]
 		   ,[City]
 		   ,[Province])
-
-VALUES    
+	VALUES    
 		(8000, 'Cape Town City Centre', 'Cape Town', 'Western Cape'),
 		(7925, 'Observatory', 'Cape Town', 'Western Cape'),
 		(2109, 'Melville', 'Johannesburg', 'Gauteng')
@@ -90,8 +89,7 @@ INSERT INTO [dbo].[Location]
 		   ,[Street_Name]
 		   ,[Latitude]
 		   ,[Longitude])
-
-VALUES    
+	VALUES    
 		(6, 247, 'Long street', CAST(-33.926054 AS Decimal(10, 6)), CAST(18.415200 AS Decimal(10, 6))),
 		(6, 181, 'Long street', CAST(-33.924547 AS Decimal(10, 6)), CAST(18.416808 AS Decimal(10, 6))),
 		(6, 69, 'Bree street', CAST(-33.919747 AS Decimal(10, 6)), CAST(18.419777 AS Decimal(10, 6))),
@@ -122,106 +120,100 @@ GO
 INSERT INTO [dbo].[SAPS]
            ([Location_ID]
 		   ,[Name]
-		   ,[Phone Number]
-		   )
-
-VALUES
-(21, 'Hillbrow SAPS','012 34567 890'),
-(22, 'Rosebank SAPS','012 34567 890'),
-(23, 'Milnerton SAPS','012 34567 890'),
-(24, 'Parktown SAPS','012 34567 890'),
-(25, 'Cape Town City Centre SAPS','012 34567 890'),
-(26, 'Observatory SAPS','012 34567 890'),
-(27, 'Melville SAPS','012 34567 890')
+		   ,[Phone_Number])
+	VALUES
+		(21, 'Hillbrow SAPS','012 34567 890'),
+		(22, 'Rosebank SAPS','012 34567 890'),
+		(23, 'Milnerton SAPS','012 34567 890'),
+		(24, 'Parktown SAPS','012 34567 890'),
+		(25, 'Cape Town City Centre SAPS','012 34567 890'),
+		(26, 'Observatory SAPS','012 34567 890'),
+		(27, 'Melville SAPS','012 34567 890')
 GO
  
 /*Hospital data*/
 INSERT INTO [dbo].[Hospital]
            ([Location_ID]
 		   ,[Name]
-		   ,[Phone Number]
-		   )
-
-VALUES
-(28, 'Groote Schuur Hospital','012 3456 444'),
-(29, 'Netcare Milpark Hospital','012 3456 444'),
-(21, 'Hillbrow  Hospital','012 3456 444')
+		   ,[Phone_Number])
+	VALUES
+		(28, 'Groote Schuur Hospital','012 3456 444'),
+		(29, 'Netcare Milpark Hospital','012 3456 444'),
+		(21, 'Hillbrow  Hospital','012 3456 444')
 GO
 
+/*Incident data*/
 INSERT INTO [dbo].[Incident]
 			([User_ID]
-				,[Location_ID]
-				,[Date]
-				,[Time]
-				,[Description])
-		VALUES 
-	(9, 1, '2021/05/03', '10:11', 'Money was stolen out of my pocket while walking down the street.'),
-	(5, 7, '2021/06/19', '2:02', 'I was pulled into a car, drugged, driven to an unknown location and left to die.'),
-	(8, 9, '2021/05/06', '1:05', 'I was punched from behind and the attacker ran away for some unknown reason.'),
-	(1, 7, '2021/08/15', '15:19', 'I was told to go back to my own country, because I am ruining this country.'),
-	(6, 6, '2022/02/17', '17:00', 'I was told that my kind are not human.'),
-	(15, 10, '2021/12/23', '11:33', 'I was spiked and then raped.'),
-	(12, 12, '2021/03/29', '18:02', 'While walking back from class myself and a group of friends were held at gun point and forced to give up our cellphones.'),
-	(13, 19, '2021/12/05', '9:59', 'My friend was working from back work, when a man in a hoodie murdered him.'),
-	(7, 24, '2021/08/13', '11:25', 'I was jamming in my new ride, listening to some sweet tunes while sitting in a parking lot. When all of a sudden 3 dudes bashed my window and stole my car.'),
-	(2, 7, '2021/06/24', '9:51', 'My uncle touched me when I was younger.'),
-	(4, 15, '2021/03/06', '19:10', 'While sitting at the park, I witnessed a child being abused.'),
-	(12, 21, '2021/11/20', '21:10', 'While walking my dog I happened to hear a loud bang and screaming coming from inside a building.'),
-	(10, 20, '2021/06/30', '15:38', 'While out at a pub a man came up to me and beat me.'),
-	(11, 15, '2022/01/18', '19:18', 'My handbag was stolen from the front seat of my car.'),
-	(14, 8, '2022/01/31', '16:27', 'While stopped at the intersection the car infront of me was hijacked, by 4 males.');
+			,[Location_ID]
+			,[DateCreated]
+			,[TimeCreated]
+			,[Incident_Description])
+	VALUES 
+		(9, 1, '2021/05/03', '10:11', 'Money was stolen out of my pocket while walking down the street.'),
+		(5, 7, '2021/06/19', '2:02', 'I was pulled into a car, drugged, driven to an unknown location and left to die.'),
+		(8, 9, '2021/05/06', '1:05', 'I was punched from behind and the attacker ran away for some unknown reason.'),
+		(1, 7, '2021/08/15', '15:19', 'I was told to go back to my own country, because I am ruining this country.'),
+		(6, 6, '2022/02/17', '17:00', 'I was told that my kind are not human.'),
+		(15, 10, '2021/12/23', '11:33', 'I was spiked and then raped.'),
+		(12, 12, '2021/03/29', '18:02', 'While walking back from class myself and a group of friends were held at gun point and forced to give up our cellphones.'),
+		(13, 19, '2021/12/05', '9:59', 'My friend was working from back work, when a man in a hoodie murdered him.'),
+		(7, 24, '2021/08/13', '11:25', 'I was jamming in my new ride, listening to some sweet tunes while sitting in a parking lot. When all of a sudden 3 dudes bashed my window and stole my car.'),
+		(2, 7, '2021/06/24', '9:51', 'My uncle touched me when I was younger.'),
+		(4, 15, '2021/03/06', '19:10', 'While sitting at the park, I witnessed a child being abused.'),
+		(12, 21, '2021/11/20', '21:10', 'While walking my dog I happened to hear a loud bang and screaming coming from inside a building.'),
+		(10, 20, '2021/06/30', '15:38', 'While out at a pub a man came up to me and beat me.'),
+		(11, 15, '2022/01/18', '19:18', 'My handbag was stolen from the front seat of my car.'),
+		(14, 8, '2022/01/31', '16:27', 'While stopped at the intersection the car infront of me was hijacked, by 4 males.');
 GO
 
+/*Incident_Type data*/
 INSERT INTO [dbo].[Incident_Type]
-			([Incident_Description])
+			([Incident_Description]
+			,[Incident_Rating])
 	VALUES  
-		('Drugged'),
-		('Assault'),
-		('Murder'),
-		('Held at gun point'),
-		('Rape'),
-		('Domestic abuse'),
-		('Child abuse'),
-		('Kidnapping'),
-		('Pedophilia'),
-		('Robbed'),
-		('Stabbing'),
-		('Hijacking'),
-		('Racism'),
-		('Xenophobia'),
-		('Hate crime');
+		('Drugged',6),
+		('Assault',10),
+		('Murder',8),
+		('Held at gun point',1),
+		('Rape',8),
+		('Domestic abuse',9),
+		('Child abuse',10),
+		('Kidnapping',7),
+		('Pedophilia',1),
+		('Robbed',6),
+		('Stabbing',9),
+		('Hijacking',8),
+		('Racism',1),
+		('Xenophobia',5),
+		('Hate crime',3);
 GO
 
 /*
 * Incident Report Junction Table
 */
-
 INSERT INTO [dbo].[Incident_Report]
-           ([Incident_ID]
-           ,[Incident_Type_ID])
-VALUES
-        (3, 13), (4, 11), (4, 4), (5, 5),
-	(6, 17), (6, 18), (7, 16), (7, 18),
-	(8, 4), (8, 8), (9, 6), (10, 7),
-	(10, 13), (11, 3), (11, 15), (12, 12),
-	(12, 2), (12, 10), (13, 10), (14, 9), 
-	(15, 5), (16, 13), (17, 15)
+		   ([Incident_ID]
+		   ,[Incident_Type_ID])
+	VALUES
+		(3, 13), (4, 11), (4, 4), (5, 5),
+		(6, 17), (6, 18), (7, 16), (7, 18),
+		(8, 4), (8, 8), (9, 6), (10, 7),
+		(10, 13), (11, 3), (11, 15), (12, 12),
+		(12, 2), (12, 10), (13, 10), (14, 9), 
+		(15, 5), (16, 13), (17, 15)
 GO
 
 /*
 * Incident Assailant Junction Table
 */
-
-USE [SCA_DB]
-GO
-
 INSERT INTO [dbo].[Assailant_Incident]
-           ([Assailant_ID]
-           ,[Incident_ID])
-VALUES
-	(3, 3), (10, 4), (4, 5), (3, 6),
-	(11, 6), (5, 7), (9, 7), (6, 8),
-	(1, 9), (12, 10), (13, 11), (17, 11),
-	(7, 12), (13, 13), (12, 14), (19, 15),
-	(18, 16), (14, 16), (15, 17), (16, 17)
+		   ([Assailant_ID]
+		   ,[Incident_ID])
+	VALUES
+		(3, 3), (10, 4), (4, 5), (3, 6),
+		(11, 6), (5, 7), (9, 7), (6, 8),
+		(1, 9), (12, 10), (13, 11), (17, 11),
+		(7, 12), (13, 13), (12, 14), (19, 15),
+		(18, 16), (14, 16), (15, 17), (16, 17)
 GO
