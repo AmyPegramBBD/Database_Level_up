@@ -20,16 +20,16 @@ CREATE TABLE dbo.[Race_Lookup] (
 );
 GO
 
-CREATE TABLE dbo.[User] (
-  [User_ID] [INT] IDENTITY (1,1) PRIMARY KEY NOT NULL,
+CREATE TABLE dbo.[Users] (
+  [Users_ID] [INT] IDENTITY (1,1) PRIMARY KEY NOT NULL,
   [Gender_ID] [INT] NOT NULL,
   [Race_ID] [INT] NOT NULL,
   [Phone_Number] varchar(15) NOT NULL,
   [Age] [INT] NULL,
-  CONSTRAINT [FK_User.Gender_ID]
+  CONSTRAINT [FK_Users.Gender_ID]
     FOREIGN KEY ([Gender_ID])
       REFERENCES [Gender_Lookup]([Gender_ID]),
-  CONSTRAINT [FK_User.Race_ID]
+  CONSTRAINT [FK_Users.Race_ID]
     FOREIGN KEY ([Race_ID])
       REFERENCES [Race_Lookup]([Race_ID])
 );
@@ -39,7 +39,7 @@ CREATE TABLE dbo.[Assailant] (
   [Assailant_ID] [INT] IDENTITY (1,1) PRIMARY KEY NOT NULL,
   [Race_ID] [INT] NOT NULL,
   [Gender_ID] [INT] NOT NULL,
-  [Description] [varchar](500) NULL,
+  [Assailant_Description] [varchar](500) NULL,
   CONSTRAINT [FK_Assailant.Gender_ID]
     FOREIGN KEY ([Gender_ID])
       REFERENCES [Gender_Lookup]([Gender_ID]),
@@ -72,17 +72,17 @@ GO
 
 CREATE TABLE dbo.[Incident] (
   [Incident_ID] [INT] IDENTITY (1,1) NOT NULL PRIMARY KEY,
-  [User_ID] [INT] NOT NULL,
+  [Users_ID] [INT] NOT NULL,
   [Location_ID] [INT] NOT NULL,
   [Date] [DATE] NOT NULL,
   [Time] [TIME] NOT NULL,
-  [Description] [varchar](500) NULL,
+  [Incident_Description] [varchar](500) NULL,
   CONSTRAINT [FK_Incident.Location_ID]
     FOREIGN KEY ([Location_ID])
       REFERENCES [Location]([Location_ID]),
-  CONSTRAINT [FK_Incident.User_ID]
-    FOREIGN KEY ([User_ID])
-      REFERENCES [User]([User_ID])
+  CONSTRAINT [FK_Incident.Users_ID]
+    FOREIGN KEY ([Users_ID])
+      REFERENCES [Users]([Users_ID])
 );
 GO
 
@@ -122,7 +122,7 @@ CREATE TABLE [Hospital] (
   [Hospital_ID] [INT] IDENTITY(1,1) NOT NULL,
   [Location_ID] [INT] NOT NULL,
   [Name] [varchar](150) NOT NULL,
-  [Phone Number] [varchar](15) NOT NULL,
+  [Phone_Number] [varchar](15) NOT NULL,
   PRIMARY KEY ([Hospital_ID]),
   CONSTRAINT [FK_Hospital.Location_ID]
     FOREIGN KEY ([Location_ID])
@@ -134,7 +134,7 @@ CREATE TABLE [SAPS] (
   [SAPS_ID] [int] IDENTITY(1,1) NOT NULL,
   [Location_ID] [INT] NOT NULL,
   [Name] [varchar](150) NOT NULL,
-  [Phone Number] [varchar](15) NOT NULL,
+  [Phone_Number] [varchar](15) NOT NULL,
   PRIMARY KEY ([SAPS_ID]),
   CONSTRAINT [FK_SAPS.Location_ID]
     FOREIGN KEY ([Location_ID])
