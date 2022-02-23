@@ -49,7 +49,7 @@ CREATE TABLE dbo.[Assailant] (
 );
 GO
 
-CREATE TABLE [Area] (
+CREATE TABLE dbo.[Area] (
   [Area_ID] [INT] IDENTITY(1,1) PRIMARY KEY NOT NULL,
   [Postal_Code] [INT] NOT NULL,
   [Suburb] [varchar](150) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE [Area] (
 GO
 
 
-CREATE TABLE [Location] (
+CREATE TABLE dbo.[Location] (
   [Location_ID] [INT] IDENTITY(1,1) PRIMARY KEY NOT NULL,
   [Area_Code_ID] [INT] FOREIGN KEY REFERENCES [Area]([Area_ID]) NOT NULL,
   [Street_Number] [INT] NULL,
@@ -74,8 +74,8 @@ CREATE TABLE dbo.[Incident] (
   [Incident_ID] [INT] IDENTITY (1,1) NOT NULL PRIMARY KEY,
   [Users_ID] [INT] NOT NULL,
   [Location_ID] [INT] NOT NULL,
-  [Date] [DATE] NOT NULL,
-  [Time] [TIME] NOT NULL,
+  [DateCreated] [DATE] NOT NULL,
+  [TimeCreated] [TIME] NOT NULL,
   [Incident_Description] [varchar](500) NULL,
   CONSTRAINT [FK_Incident.Location_ID]
     FOREIGN KEY ([Location_ID])
@@ -87,15 +87,16 @@ CREATE TABLE dbo.[Incident] (
 GO
 
 CREATE TABLE dbo.[Incident_Type] (
-  [Incident_Type_ID] INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
+  [Incident_Type_ID] [INT] IDENTITY (1,1) NOT NULL PRIMARY KEY,
   [Incident_Description] [varchar](150) NOT NULL
+  [Incident_Rating] [INT] NOT NULL,
 );
 GO
 
-CREATE TABLE [Assailant_Incident] (
-  [Assailant_Incident_ID] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
-  [Assailant_ID] [int],
-  [Incident_ID] [int],
+CREATE TABLE dbo.[Assailant_Incident] (
+  [Assailant_Incident_ID] [INT] IDENTITY (1,1) PRIMARY KEY NOT NULL,
+  [Assailant_ID] [INT],
+  [Incident_ID] [INT],
   CONSTRAINT [FK_Assailant_Incident.Incident_ID]
     FOREIGN KEY ([Incident_ID])
       REFERENCES [Incident]([Incident_ID]),
@@ -105,10 +106,10 @@ CREATE TABLE [Assailant_Incident] (
 );
 GO
 
-CREATE TABLE [Incident_Report] (
-  [Incident_Report_ID] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
-  [Incident_ID] [int],
-  [Incident_Type_ID] [int],
+CREATE TABLE dbo.[Incident_Report] (
+  [Incident_Report_ID] [INT] IDENTITY (1,1) PRIMARY KEY NOT NULL,
+  [Incident_ID] [INT],
+  [Incident_Type_ID] [INT],
   CONSTRAINT [FK_Incident_Report.Incident_ID]
     FOREIGN KEY ([Incident_ID])
       REFERENCES [Incident]([Incident_ID]),
@@ -118,7 +119,7 @@ CREATE TABLE [Incident_Report] (
 );
 GO
 
-CREATE TABLE [Hospital] (
+CREATE TABLE dbo.[Hospital] (
   [Hospital_ID] [INT] IDENTITY(1,1) NOT NULL,
   [Location_ID] [INT] NOT NULL,
   [Name] [varchar](150) NOT NULL,
@@ -130,8 +131,8 @@ CREATE TABLE [Hospital] (
 );
 GO
 
-CREATE TABLE [SAPS] (
-  [SAPS_ID] [int] IDENTITY(1,1) NOT NULL,
+CREATE TABLE dbo.[SAPS] (
+  [SAPS_ID] [INT] IDENTITY(1,1) NOT NULL,
   [Location_ID] [INT] NOT NULL,
   [Name] [varchar](150) NOT NULL,
   [Phone_Number] [varchar](15) NOT NULL,
