@@ -164,6 +164,50 @@ VALUES
 	(15, 5), (16, 13), (17, 15)
 GO
 
+INSERT INTO [dbo].[Incident]
+			([User_ID]
+				,[Location_ID]
+				,[Date]
+				,[Time]
+				,[Description])
+		VALUES 
+	(9, 1, '2021/05/03', '10:11', 'Money was stolen out of my pocket while walking down the street.'),
+	(5, 7, '2021/06/19', '2:02', 'I was pulled into a car, drugged, driven to an unknown location and left to die.'),
+	(8, 9, '2021/05/06', '1:05', 'I was punched from behind and the attacker ran away for some unknown reason.'),
+	(1, 7, '2021/08/15', '15:19', 'I was told to go back to my own country, because I am ruining this country.'),
+	(6, 6, '2022/02/17', '17:00', 'I was told that my kind are not human.'),
+	(15, 10, '2021/12/23', '11:33', 'I was spiked and then raped.'),
+	(12, 12, '2021/03/29', '18:02', 'While walking back from class myself and a group of friends were held at gun point and forced to give up our cellphones.'),
+	(13, 19, '2021/12/05', '9:59', 'My friend was working from back work, when a man in a hoodie murdered him.'),
+	(7, 24, '2021/08/13', '11:25', 'I was jamming in my new ride, listening to some sweet tunes while sitting in a parking lot. When all of a sudden 3 dudes bashed my window and stole my car.'),
+	(2, 7, '2021/06/24', '9:51', 'My uncle touched me when I was younger.'),
+	(4, 15, '2021/03/06', '19:10', 'While sitting at the park, I witnessed a child being abused.'),
+	(12, 21, '2021/11/20', '21:10', 'While walking my dog I happened to hear a loud bang and screaming coming from inside a building.'),
+	(10, 20, '2021/06/30', '15:38', 'While out at a pub a man came up to me and beat me.'),
+	(11, 15, '2022/01/18', '19:18', 'My handbag was stolen from the front seat of my car.'),
+	(14, 8, '2022/01/31', '16:27', 'While stopped at the intersection the car infront of me was hijacked, by 4 males.');
+GO
+
+INSERT INTO [dbo].[Incident]
+			([Incident_Description])
+	VALUES  
+		('Drugged'),
+		('Assault'),
+		('Murder'),
+		('Held at gun point'),
+		('Rape'),
+		('Domestic abuse'),
+		('Child abuse'),
+		('Kidnapping'),
+		('Pedophilia'),
+		('Robbed'),
+		('Stabbing'),
+		('Hijacking'),
+		('Racism'),
+		('Xenophobia'),
+		('Hate crime');
+GO
+
 /*
 * Incident Assailant Junction Table
 */
