@@ -30,10 +30,10 @@ https://lucid.app/lucidchart/3326c5b9-fbfb-4ffe-98ad-022898f7359c/edit?invitatio
 ## Development Team
 
 - [ ] [Amy Pegram](https://github.com/AmyPegramBBD)
-- [ ] [Andrew Bodenstein]()
-- [ ] [Nikita Smal]()
+- [ ] [Andrew Bodenstein](https://github.com/AndrewBB-BBD)
+- [ ] [Nikita Smal](https://github.com/nikitasmal)
 - [ ] [Phumzile Nkosi](https://github.com/PhumzileNkosi)
-- [ ] [Riselle Rawthee]()
+- [ ] [Riselle Rawthee](https://github.com/RiselleRawthee)
 - [ ] [Sandhya I. Singh](https://github.com/ms-si-Singh)
 
 <!-- REFERENCES -->
