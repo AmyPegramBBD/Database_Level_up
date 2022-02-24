@@ -180,8 +180,8 @@ SELECT
 			WHEN Age BETWEEN 90 AND 99 THEN '90 - 99'
 			ELSE 'OUT OF RANGE'
 
-			END AS [RANGE],
-			COUNT(Incident.Users_ID) as [COUNT]
+			END AS 'AGE RANGE',
+			COUNT(Incident.Users_ID) as 'INCIDENTS BY AGE'
 	FROM Users 	
 		INNER JOIN Incident
 			ON
