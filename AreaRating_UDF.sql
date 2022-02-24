@@ -4,7 +4,7 @@ GO
 
 
 /* run this function first and comment out the rest*/
-/*
+
 CREATE FUNCTION dbo.AreaRatingWithCount(@InputAreaID int)  
 RETURNS INT 
 AS
@@ -24,10 +24,10 @@ BEGIN
 	RETURN @return_value
 END 
 GO
-*/
+
 
 /* run this function second and comment out the rest including the top function*/
-/*
+
 CREATE FUNCTION dbo.AreaRatingWithRatingRangeOutput (@InputAreaIDForOutputRange int)
 RETURNS VARCHAR(100) 
 AS
@@ -62,7 +62,8 @@ BEGIN
 	RETURN @return_value
 END 
 GO
-*/
+
+
 
 /* Run these statements below to test, make sure that the top two functions are now commented out since they have been created*/
 Select * from Area;
@@ -80,19 +81,19 @@ ON Location.Location_ID = Incident.Location_ID
 INNER JOIN dbo.Incident_Report  
 ON Incident.Incident_ID = Incident_Report.Incident_ID 
 INNER JOIN dbo.Incident_Type  
-ON Incident_Report.Incident_Type_ID  = Incident_Type.Incident_Type_ID  WHERE Area.Area_ID =6;   /*change this value to 1-8 for different areas*/
+ON Incident_Report.Incident_Type_ID  = Incident_Type.Incident_Type_ID  WHERE Area.Area_ID =1;   /*change this value to 1-8 for different areas*/
 
 
 GO
 declare @InputAreaID INT
-set @InputAreaID = 6;  /*change this value to 1-8 for different areas*/
+set @InputAreaID = 1;  /*change this value to 1-8 for different areas*/
 select 
 @InputAreaID [@InputArea]
 ,dbo.AreaRatingWithCount(@InputAreaID) [Area Rating]
 
 
 declare @InputAreaIDForOutputRange INT
-set @InputAreaIDForOutputRange = 6;   /*change this value to 1-8 for different areas*/
+set @InputAreaIDForOutputRange = 1;   /*change this value to 1-8 for different areas*/
 select 
 @InputAreaIDForOutputRange [@InputAreaIDForOutputRange]
 ,dbo.AreaRatingWithRatingRangeOutput(@InputAreaIDForOutputRange) [Area Rating Range]

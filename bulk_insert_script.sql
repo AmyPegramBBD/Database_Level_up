@@ -58,7 +58,7 @@ INSERT INTO [dbo].[Users]
            ,[Age])
      VALUES
 		   (2, 1, 0715234398, 22),
-		   (2, 1, 0873459838, 50),
+		   (2, 1, 0873459838, 16),
            (3, 6, 0393255565, 45),
 		   (1, 3, 3925716227, 39),
 		   (1, 2, 4182437860, 34),
@@ -178,7 +178,7 @@ INSERT INTO [dbo].[Incident]
 		(12, 12, '2021/03/29', '18:02', 'While walking back from class myself and a group of friends were held at gun point and forced to give up our cellphones.'),
 		(13, 19, '2021/12/05', '9:59', 'My friend was working from back work, when a man in a hoodie murdered him.'),
 		(7, 24, '2021/08/13', '11:25', 'I was jamming in my new ride, listening to some sweet tunes while sitting in a parking lot. When all of a sudden 3 dudes bashed my window and stole my car.'),
-		(2, 7, '2021/06/24', '9:51', 'My uncle touched me when I was younger.'),
+		(2, 7, '2021/06/24', '9:51', 'I was catcalled walking, then groped by a much older man.'),
 		(4, 15, '2021/03/06', '19:10', 'While sitting at the park, I witnessed a child being abused.'),
 		(12, 21, '2021/11/20', '21:10', 'While walking my dog I happened to hear a loud bang and screaming coming from inside a building.'),
 		(10, 20, '2021/06/30', '15:38', 'While out at a pub a man came up to me and beat me.'),
