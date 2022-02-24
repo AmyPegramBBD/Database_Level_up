@@ -143,7 +143,7 @@ GO
 
 /*Incident data*/
 INSERT INTO [dbo].[Incident]
-			([User_ID]
+			([Users_ID]
 			,[Location_ID]
 			,[DateCreated]
 			,[TimeCreated]
@@ -192,10 +192,10 @@ GO
 * Incident Report Junction Table
 */
 INSERT INTO [dbo].[Incident_Report]
-		   ([Incident_ID]
-		   ,[Incident_Type_ID])
+           ([Incident_ID]
+           ,[Incident_Type_ID])
 	VALUES
-		(3, 13), (4, 11), (4, 4), (5, 5),
+        (3, 13), (4, 11), (4, 4), (5, 5),
 		(6, 17), (6, 18), (7, 16), (7, 18),
 		(8, 4), (8, 8), (9, 6), (10, 7),
 		(10, 13), (11, 3), (11, 15), (12, 12),
@@ -207,8 +207,8 @@ GO
 * Incident Assailant Junction Table
 */
 INSERT INTO [dbo].[Assailant_Incident]
-		   ([Assailant_ID]
-		   ,[Incident_ID])
+           ([Assailant_ID]
+           ,[Incident_ID])
 	VALUES
 		(3, 3), (10, 4), (4, 5), (3, 6),
 		(11, 6), (5, 7), (9, 7), (6, 8),
