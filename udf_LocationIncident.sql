@@ -2,8 +2,10 @@
 * This UDF will accept an input of street number and street name and output a table of incidents that took place at that area.
 * The table will also show the incident description, incident classifications and a description of the attacker
 */
+USE SCA_DB
+GO
 
-CREATE FUNCTION getIncidentReportFilter_UDF (@streetNumber int, @streetName varchar(150))
+CREATE FUNCTION udf_getIncidentReportFilter (@streetNumber int, @streetName varchar(150))
 RETURNS TABLE
 AS
 RETURN
@@ -32,4 +34,4 @@ GO
 
 --Used the following SELECT statement to test UDF
 
-SELECT * FROM getIncidentReportFilter_UDF(181, 'Long Street');
+SELECT * FROM udf_getIncidentReportFilter(181, 'Long Street');
