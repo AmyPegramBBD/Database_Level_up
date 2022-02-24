@@ -10,7 +10,7 @@ RETURN
 (	
     SELECT 
     	[SCA_DB].[dbo].[Incident_Report_View].[Incident_ID],
-      	[SCA_DB].[dbo].[Incident_Report_View].[Incident Description],
+      	[SCA_DB].[dbo].[Incident_Report_View].[Incident_Description] AS [Incident Description],
      	[SCA_DB].[dbo].[Incident_Report_View].[Classification],
       	[SCA_DB].[dbo].[Incident_Report_View].[Assailiant's Description]
     FROM 
@@ -20,18 +20,10 @@ RETURN
     AND
   	[Incident].Location_ID = (SELECT DISTINCT Location_ID 
 				  FROM 
-			      		[SCA_DB_V01].[dbo].[Location] L 
+			      		[SCA_DB].[dbo].[Location] L 
 			          WHERE 
 					L.Street_Name = @streetName
 				  AND
 				      	L.Street_Number = @streetNumber)
-		
 );
 GO
-
-/*
-* Used the following SELECT statement to test UDF
-*
-* SELECT * FROM getIncidentReportFilter_UDF(181, 'Long Street');
-*
-*/
