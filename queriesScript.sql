@@ -8,7 +8,7 @@ GO
  -- Andrew
 -- SCA_DB_script.sql
 
-SELECT * FROM Age_vs_Incidents;
+SELECT * FROM vwAge_vs_Incidents;
 SELECT * FROM Gender_vs_Incidents;
 
 -- Nikita
@@ -19,7 +19,7 @@ SELECT * from Incident_Report_View
 -- Sandy
 -- LocationIncident_UDF.sql
 
-SELECT * FROM getIncidentReportFilter_UDF(181, 'Long Street'); 
+SELECT * FROM udf_getIncidentReportFilter(181, 'Long Street'); 
 
 -- Phumi
 -- WeekIncidents_UDF.sql
