@@ -1,5 +1,5 @@
 /*
-* This UDF will accept an input of street number and street name and output a table of incidents that took place in that area.
+* This UDF will accept an input of street number and street name and output a table of incidents that took place at that area.
 * The table will also show the incident description, incident classifications and a description of the attacker
 */
 
