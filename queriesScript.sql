@@ -28,6 +28,7 @@ SELECT * FROM getIncidentReportFilter_UDF(181, 'Long Street');
 
 -- Amy
 -- usp_Get_Closest_Hospital.sql
+EXEC [uspGet_Closest_Services] 6;  
 
 SELECT 
 	[dbo].[vwHospital_Location].[Name], [dbo].[vwHospital_Location].[Phone_Number], 
