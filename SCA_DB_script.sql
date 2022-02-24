@@ -7,7 +7,6 @@ GO
 USE SCA_DB;
 GO
 
-
 CREATE TABLE dbo.[Gender_Lookup] (
   [Gender_ID] [INT] IDENTITY (1,1) NOT NULL PRIMARY KEY,
   [Gender_Description] [varchar](150) NOT NULL
@@ -88,7 +87,7 @@ GO
 
 CREATE TABLE dbo.[Incident_Type] (
   [Incident_Type_ID] [INT] IDENTITY (1,1) NOT NULL PRIMARY KEY,
-  [Incident_Description] [varchar](150) NOT NULL
+  [Incident_Description] [varchar](150) NOT NULL,
   [Incident_Rating] [INT] NOT NULL,
 );
 GO
@@ -141,4 +140,88 @@ CREATE TABLE dbo.[SAPS] (
     FOREIGN KEY ([Location_ID])
       REFERENCES [Location]([Location_ID]),
 );
+GO
+
+CREATE VIEW Gender_vs_Incidents 
+AS 
+SELECT	Gender_Lookup.Gender_Description GENDER, 
+		COUNT(Incident.Users_ID) 'INCIDENTS BY GENDER'
+
+
+FROM	Gender_Lookup 
+		INNER JOIN Users
+			ON 
+			Gender_Lookup.Gender_ID = Users.Gender_ID
+		INNER JOIN Incident
+			ON
+			Users.Users_ID = Incident.Users_ID
+
+GROUP BY Gender_Lookup.Gender_Description
+GO
+
+SELECT * FROM Gender_vs_Incidents;
+
+DROP VIEW Gender_vs_Incidents;
+GO
+
+CREATE VIEW Age_vs_Incidents
+AS 
+SELECT 
+		CASE 
+			WHEN Age BETWEEN 0 AND 9 THEN '0 - 9'
+			WHEN Age BETWEEN 10 AND 19 THEN '10 - 19'
+			WHEN Age BETWEEN 20 AND 29 THEN '20 - 29'
+			WHEN Age BETWEEN 30 AND 39 THEN '30 - 39' 
+			WHEN Age BETWEEN 40 AND 49 THEN '40 - 49' 
+			WHEN Age BETWEEN 50 AND 59 THEN '50 - 59' 
+			WHEN Age BETWEEN 60 AND 69 THEN '60 - 69'
+			WHEN Age BETWEEN 70 AND 79 THEN '70 - 79'
+			WHEN Age BETWEEN 80 AND 89 THEN '80 - 89'
+			WHEN Age BETWEEN 90 AND 99 THEN '90 - 99'
+			ELSE 'OUT OF RANGE'
+
+			END AS [RANGE],
+			COUNT(Incident.Users_ID) as [COUNT]
+	FROM Users 	
+		INNER JOIN Incident
+			ON
+			Users.Users_ID = Incident.Users_ID
+GROUP BY 
+			CASE 
+			WHEN Age BETWEEN 0 AND 9 THEN '0 - 9'
+			WHEN Age BETWEEN 10 AND 19 THEN '10 - 19'
+			WHEN Age BETWEEN 20 AND 29 THEN '20 - 29'
+			WHEN Age BETWEEN 30 AND 39 THEN '30 - 39' 
+			WHEN Age BETWEEN 40 AND 49 THEN '40 - 49' 
+			WHEN Age BETWEEN 50 AND 59 THEN '50 - 59' 
+			WHEN Age BETWEEN 60 AND 69 THEN '60 - 69'
+			WHEN Age BETWEEN 70 AND 79 THEN '70 - 79'
+			WHEN Age BETWEEN 80 AND 89 THEN '80 - 89'
+			WHEN Age BETWEEN 90 AND 99 THEN '90 - 99' 
+			ELSE 'OUT OF RANGE'
+			END;
+GO
+
+SELECT * FROM Age_vs_Incidents;
+
+DROP VIEW Age_vs_Incidents;
+GO
+
+
+CREATE VIEW Nikita 
+AS 
+SELECT	Incident_Type.Incident_Description 'INCIDENT TYPE DESCRIPTION',
+		Incident.Incident_Description 'INCIDENT DESCRIPTION',
+		Assailant.Assailant_Description 'ASSAILANT DESCRIPTION'
+
+	FROM Incident_Type
+			INNER JOIN Incident_Report ON Incident_Type.Incident_Type_ID= Incident_Report.Incident_Type_ID
+			INNER JOIN Incident ON Incident_Report.Incident_ID= Incident.Incident_ID
+			INNER JOIN Assailant_Incident ON  Assailant_Incident.Incident_ID= Incident.Incident_ID
+			INNER JOIN Assailant ON Assailant.Assailant_ID= Assailant_Incident.Assailant_ID
+GO
+
+SELECT * FROM Nikita;
+
+DROP VIEW Nikita;
 GO
