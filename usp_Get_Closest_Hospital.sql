@@ -52,4 +52,6 @@ END
 
 GO
 
+EXEC [uspGet_Closest_Services] 6;  
+
 

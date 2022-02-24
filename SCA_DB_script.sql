@@ -164,7 +164,7 @@ GO
 SELECT * FROM Gender_vs_Incidents;
 Go
 
-CREATE VIEW Age_vs_Incidents
+CREATE VIEW vwAge_vs_Incidents
 AS 
 SELECT 
 		CASE 
@@ -202,7 +202,7 @@ GROUP BY
 			END;
 GO
 
-SELECT * FROM Age_vs_Incidents;
+SELECT * FROM vwAge_vs_Incidents;
 GO
 
 CREATE VIEW [dbo].[vwHospital_Location]
