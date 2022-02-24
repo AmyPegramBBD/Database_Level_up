@@ -4,24 +4,24 @@
 USE SCA_DB;
 GO
 
---/*Gender and Race tables*/
---INSERT INTO dbo.[Gender_Lookup]
---([Gender_Description])
---VALUES('Male'),
---      ('Female'),
---	  ('Other'),
---	  ('Unknown');
---GO
+/*Gender and Race tables*/
+INSERT INTO dbo.[Gender_Lookup]
+([Gender_Description])
+VALUES('Male'),
+      ('Female'),
+	  ('Other'),
+	  ('Unknown');
+GO
 
---INSERT INTO dbo.[Race_Lookup]
---([Race_Description])
---VALUES('White'),
---      ('Black'),
---	  ('Indian'),
---	  ('Coloured'),
---	  ('Other'),
---	  ('Unknown');
---GO
+INSERT INTO dbo.[Race_Lookup]
+([Race_Description])
+VALUES('White'),
+      ('Black'),
+	  ('Indian'),
+	  ('Coloured'),
+	  ('Other'),
+	  ('Unknown');
+GO
 
 /*Assailant data*/
 INSERT INTO [dbo].[Assailant]
@@ -29,6 +29,10 @@ INSERT INTO [dbo].[Assailant]
            ,[Gender_ID]
            ,[Assailant_Description])
      VALUES
+			(1, 1, 'White man wearing a black hoodie. Had curly dark hair'),
+			(1, 2, 'White woman with blonde hair in a white van'),
+			(2, 1, 'Red hat with long coat'),
+			(3, 1, 'Jeans and tshirt, long hair'),
             (1,1,'white male, approximately six feet tall with a medium build. His complexion was fair and he wore a moustache'),
 			(5,1,'Has scars on his forehead and right cheek.'),
 			(2,3,'Wore lots of jewelry'),
@@ -53,21 +57,23 @@ INSERT INTO [dbo].[Users]
            ,[Phone_Number]
            ,[Age])
      VALUES
-           (3, 6, '639 325 5565', 45),
-		   (1, 3, '392 571 6227', 39),
-		   (1, 2, '410 243 7860', 34),
-		   (4, 2, '617 475 7137', 30),
-		   (4, 4, '932 930 9008', 54),
-		   (2, 6, '446 832 8821', 41),
-		   (2, 4, '920 818 3763', 38),
-		   (3, 3, '456 665 2089', 37),
-		   (1, 2, '417 227 0070', 60),
-		   (3, 5, '248 775 5167', 53),
-		   (1, 6, '224 343 6829', 55),
-		   (1, 2, '139 785 9256', 54),
-		   (3, 5, '368 479 2617', 55),
-		   (2, 5, '110 527 5962', 20),
-		   (2, 1, '930 214 1784', 37);
+		   (2, 1, 0715234398, 22),
+		   (2, 1, 0873459838, 50),
+           (3, 6, 0393255565, 45),
+		   (1, 3, 3925716227, 39),
+		   (1, 2, 4182437860, 34),
+		   (4, 2, 6174757137, 30),
+		   (4, 4, 9329309008, 54),
+		   (2, 6, 4468328821, 41),
+		   (2, 4, 9208183763, 38),
+		   (3, 3, 4566652089, 37),
+		   (1, 2, 4172270070, 60),
+		   (3, 5, 2487755167, 53),
+		   (1, 6, 2243436829, 55),
+		   (1, 2, 1397859256, 54),
+		   (3, 5, 3684792617, 55),
+		   (2, 5, 1105275962, 20),
+		   (2, 1, 9302141784, 37);
 GO
 
 /*Area data*/
@@ -77,6 +83,11 @@ INSERT INTO [dbo].[Area]
 		   ,[City]
 		   ,[Province])
 	VALUES    
+		(2001, N'Braamfontein', N'Johannesburg', N'Gauteng'),
+		(2001, N'Braamfontein', N'Johannesburg', N'Gauteng'),
+		(2001, N'Braamfontein', N'Johannesburg', N'Gauteng'),
+		(2193, N'Parktown', N'Johannesburg', N'Gauteng'),
+		(2196, N'Rosebank', N'Johannesburg', N'Gauteng'),
 		(8000, 'Cape Town City Centre', 'Cape Town', 'Western Cape'),
 		(7925, 'Observatory', 'Cape Town', 'Western Cape'),
 		(2109, 'Melville', 'Johannesburg', 'Gauteng')
@@ -88,7 +99,12 @@ INSERT INTO [dbo].[Location]
 		   ,[Street_Number]
 		   ,[Street_Name]
 		   ,[Map_Location])
-	VALUES    
+	VALUES   
+		(1, 1, N'Jan Smuts Avenue',  geography::Point(-25.571944, 31.181389, 4326)),
+		(2, 1, N'Newtown Avenue', geography::Point(-26.159500, 28.051833, 4326)), 
+		(3, 1, N'N Bank Ln', geography::Point(-26.159500, 28.051833, 4326)),
+		(4, 17, N'Jubilee Road', geography::Point(-26.159500, 28.051833, 4326)),
+		(5, 15, N'Sturdee Avenue', geography::Point(-26.159500, 28.051833, 4326)),
 		(6, 247, 'Long street',  geography::Point(-33.926054, 18.415200, 4326)),
 		(6, 181, 'Long street', geography::Point(-33.924547, 18.416808, 4326)),
 		(6, 69, 'Bree street', geography::Point(-33.919747, 18.419777, 4326)),
@@ -112,7 +128,7 @@ INSERT INTO [dbo].[Location]
 		(7, NULL,  'Cape Town City Centre', geography::Point(-33.941048, 18.423295, 4326)),
 		(8, NULL, 'Mercury street', geography::Point(-26.192645, 27.993953, 4326)),
 		(7, NULL, 'Groote Schuur drive', geography::Point(-33.939424, 18.464692, 4326)),
-		(4, 6, 'Guild road', geography::Point(-26.180933,28.018597, 4326)),
+		(4, 6, 'Guild road', geography::Point(-26.180933,28.018597, 4326));
 GO
 
 /*SAPS data*/
@@ -121,13 +137,14 @@ INSERT INTO [dbo].[SAPS]
 		   ,[Name]
 		   ,[Phone_Number])
 	VALUES
-		(21, 'Hillbrow SAPS','012 34567 890'),
-		(22, 'Rosebank SAPS','012 34567 890'),
-		(23, 'Milnerton SAPS','012 34567 890'),
-		(24, 'Parktown SAPS','012 34567 890'),
-		(25, 'Cape Town City Centre SAPS','012 34567 890'),
-		(26, 'Observatory SAPS','012 34567 890'),
-		(27, 'Melville SAPS','012 34567 890')
+		(5, 'Rosebank Police Station', 0117784700),
+		(21, 'Hillbrow SAPS',01234567890),
+		(22, 'Rosebank SAPS',01234567890),
+		(23, 'Milnerton SAPS',01234567890),
+		(24, 'Parktown SAPS',01234567890),
+		(25, 'Cape Town City Centre SAPS',01234567890),
+		(26, 'Observatory SAPS',01234567890),
+		(27, 'Melville SAPS',01234567890)
 GO
  
 /*Hospital data*/
@@ -136,9 +153,10 @@ INSERT INTO [dbo].[Hospital]
 		   ,[Name]
 		   ,[Phone_Number])
 	VALUES
-		(28, 'Groote Schuur Hospital','012 3456 444'),
-		(29, 'Netcare Milpark Hospital','012 3456 444'),
-		(21, 'Hillbrow  Hospital','012 3456 444')
+		(4, 'Charlotte Maxeke Johannesburg Academic Hospital', 0114884911),
+		(28, 'Groote Schuur Hospital',0123456444),
+		(29, 'Netcare Milpark Hospital',0123456444),
+		(21, 'Hillbrow  Hospital',01277456444)
 GO
 
 /*Incident data*/
@@ -149,6 +167,8 @@ INSERT INTO [dbo].[Incident]
 			,[TimeCreated]
 			,[Incident_Description])
 	VALUES 
+		(1, 1, '2022/02/21', '18:00:00', 'Catcalled while walking out of a lecture, then was groped'),
+		(1, 1,'2022-02-21', '18:00:00', 'Catcalled while walking out of a lecture, then was groped'),
 		(9, 1, '2021/05/03', '10:11', 'Money was stolen out of my pocket while walking down the street.'),
 		(5, 7, '2021/06/19', '2:02', 'I was pulled into a car, drugged, driven to an unknown location and left to die.'),
 		(8, 9, '2021/05/06', '1:05', 'I was punched from behind and the attacker ran away for some unknown reason.'),
@@ -171,6 +191,9 @@ INSERT INTO [dbo].[Incident_Type]
 			([Incident_Description]
 			,[Incident_Rating])
 	VALUES  
+		('Catcalling', 2),
+		('Groping', 5),
+		('Smash and grab', 10),
 		('Drugged',6),
 		('Assault',10),
 		('Murder',8),
