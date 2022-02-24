@@ -64,8 +64,7 @@ CREATE TABLE dbo.[Location] (
   [Area_Code_ID] [INT] FOREIGN KEY REFERENCES [Area]([Area_ID]) NOT NULL,
   [Street_Number] [INT] NULL,
   [Street_Name] [varchar](250) NULL,
-  [Latitude] [decimal](10,6) NOT NULL,
-  [Longitude] [decimal](10,6) NOT NULL,
+  [Map_Location] geography,
 );
 GO
 
