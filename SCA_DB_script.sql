@@ -224,3 +224,21 @@ SELECT * FROM Nikita;
 
 DROP VIEW Nikita;
 GO
+
+CREATE VIEW [dbo].[vwHospital_Location]
+AS
+SELECT        dbo.Area.Area_ID, dbo.Area.Postal_Code, dbo.Area.City, dbo.Area.Suburb, dbo.Area.Province, dbo.Hospital.Hospital_ID, dbo.Hospital.Name, dbo.Hospital.Phone_Number, dbo.Location.Location_ID, dbo.Location.Street_Number, 
+                         dbo.Location.Street_Name, dbo.Location.Map_Location
+FROM            dbo.Area INNER JOIN
+                         dbo.Location ON dbo.Area.Area_ID = dbo.Location.Area_Code_ID INNER JOIN
+                         dbo.Hospital ON dbo.Location.Location_ID = dbo.Hospital.Location_ID
+GO
+
+CREATE VIEW [dbo].[vwIncident_Location]
+AS
+SELECT        dbo.Area.Area_ID, dbo.Area.Postal_Code, dbo.Area.Suburb, dbo.Area.City, dbo.Area.Province, dbo.Incident.Incident_ID, dbo.Incident.Users_ID, dbo.Incident.Location_ID, dbo.Incident.DateCreated, dbo.Incident.TimeCreated, 
+                         dbo.Incident.Incident_Description, dbo.Location.Location_ID AS Expr1, dbo.Location.Street_Number, dbo.Location.Street_Name, dbo.Location.Map_Location
+FROM            dbo.Area INNER JOIN
+                         dbo.Location ON dbo.Area.Area_ID = dbo.Location.Area_Code_ID INNER JOIN
+                         dbo.Incident ON dbo.Location.Location_ID = dbo.Incident.Location_ID
+GO

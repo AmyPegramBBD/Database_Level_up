@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-ALTER PROCEDURE [dbo].[uspGet_Closest_Services]
+CREATE PROCEDURE [dbo].[uspGet_Closest_Services]
 	@Incident_ID [INT]
 AS
 BEGIN
