@@ -141,6 +141,9 @@ CREATE TABLE dbo.[SAPS] (
 );
 GO
 
+/*
+* Views
+*/
 CREATE VIEW Gender_vs_Incidents 
 AS 
 SELECT	Gender_Lookup.Gender_Description GENDER, 
@@ -159,9 +162,7 @@ GROUP BY Gender_Lookup.Gender_Description
 GO
 
 SELECT * FROM Gender_vs_Incidents;
-
-DROP VIEW Gender_vs_Incidents;
-GO
+Go
 
 CREATE VIEW Age_vs_Incidents
 AS 
@@ -202,25 +203,4 @@ GROUP BY
 GO
 
 SELECT * FROM Age_vs_Incidents;
-
-DROP VIEW Age_vs_Incidents;
-GO
-
-
-CREATE VIEW Nikita 
-AS 
-SELECT	Incident_Type.Incident_Description 'INCIDENT TYPE DESCRIPTION',
-		Incident.Incident_Description 'INCIDENT DESCRIPTION',
-		Assailant.Assailant_Description 'ASSAILANT DESCRIPTION'
-
-	FROM Incident_Type
-			INNER JOIN Incident_Report ON Incident_Type.Incident_Type_ID= Incident_Report.Incident_Type_ID
-			INNER JOIN Incident ON Incident_Report.Incident_ID= Incident.Incident_ID
-			INNER JOIN Assailant_Incident ON  Assailant_Incident.Incident_ID= Incident.Incident_ID
-			INNER JOIN Assailant ON Assailant.Assailant_ID= Assailant_Incident.Assailant_ID
-GO
-
-SELECT * FROM Nikita;
-
-DROP VIEW Nikita;
 GO
