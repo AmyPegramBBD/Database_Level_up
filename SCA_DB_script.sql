@@ -23,7 +23,7 @@ CREATE TABLE dbo.[Users] (
   [Users_ID] [INT] IDENTITY (1,1) PRIMARY KEY NOT NULL,
   [Gender_ID] [INT] NOT NULL,
   [Race_ID] [INT] NOT NULL,
-  [Phone_Number] varchar(15) NOT NULL,
+  [Phone_Number] [numeric] NOT NULL,
   [Age] [INT] NULL,
   CONSTRAINT [FK_Users.Gender_ID]
     FOREIGN KEY ([Gender_ID])
@@ -122,7 +122,7 @@ CREATE TABLE dbo.[Hospital] (
   [Hospital_ID] [INT] IDENTITY(1,1) NOT NULL,
   [Location_ID] [INT] NOT NULL,
   [Name] [varchar](150) NOT NULL,
-  [Phone_Number] [varchar](15) NOT NULL,
+  [Phone_Number] [numeric] NOT NULL,
   PRIMARY KEY ([Hospital_ID]),
   CONSTRAINT [FK_Hospital.Location_ID]
     FOREIGN KEY ([Location_ID])
@@ -134,7 +134,7 @@ CREATE TABLE dbo.[SAPS] (
   [SAPS_ID] [INT] IDENTITY(1,1) NOT NULL,
   [Location_ID] [INT] NOT NULL,
   [Name] [varchar](150) NOT NULL,
-  [Phone_Number] [varchar](15) NOT NULL,
+  [Phone_Number] [numeric] NOT NULL,
   PRIMARY KEY ([SAPS_ID]),
   CONSTRAINT [FK_SAPS.Location_ID]
     FOREIGN KEY ([Location_ID])
